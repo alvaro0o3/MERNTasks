@@ -1,6 +1,7 @@
 // Endpoints para Usuarios
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/auth');
 const userController = require('../controllers/userController');
 const { check } = require('express-validator');
 
@@ -14,4 +15,12 @@ router.post('/',
     ],
     userController.createUser
 );
+
+// Listar usuarios
+// API/usuarios
+router.get('/',
+    auth,
+    userController.getUsers
+);
+
 module.exports = router;

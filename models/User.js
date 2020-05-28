@@ -20,6 +20,9 @@ const UserSchema = mongoose.Schema({
     fecharegistro: {
         type: Date,
         default: Date.now()
+    },
+    admin: {
+        type: Boolean
     }
 
 });

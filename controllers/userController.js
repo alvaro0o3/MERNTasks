@@ -55,3 +55,16 @@ exports.createUser = async (req, res) => {
         res.status(400).send('Ha ocurrido un error inesperado');
     }
 }
+
+// Obtiene los usuarios de la bbdd
+exports.getUsers = async (req, res) => {
+
+    try {
+        // Query a la bd que saca los usuarios
+        const users = await User.find();
+        res.json({ users });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Hubo un error inesperado');
+    }
+}
