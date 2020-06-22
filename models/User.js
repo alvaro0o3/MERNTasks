@@ -16,6 +16,16 @@ const UserSchema = mongoose.Schema({
         trim: true,
         unique: true
     },
+    telefono: {
+        type: String,
+        trim: true,
+        minlength: 9,
+        maxlength: 9
+    }, 
+    empresa: {
+        type: String,
+        trim: true
+    }, 
     password: {
         type: String,
         required: true,

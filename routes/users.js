@@ -11,7 +11,7 @@ router.post('/',
     [
         check('nombre', 'El nombre es obligatorio').not().isEmpty(),
         check('email', 'Inserta un email válido').isEmail(),
-        check('password', 'La contraseña debe contener al menos 6 caracteres').isLength({min: 6})
+        check('password', 'La contraseña debe contener al menos 6 caracteres').isLength({ min: 6 })
     ],
     userController.createUser
 );
@@ -24,3 +24,15 @@ router.get('/',
 );
 
 module.exports = router;
+
+// Editar usuario
+// API/usuarios
+router.put('/:id',
+    auth,
+    [
+        check('nombre', 'El nombre es obligatorio').not().isEmpty(),
+        check('email', 'Inserta un email válido').isEmail(),
+        check('telefono', 'Inserta un número de teléfono válido').isLength({ min: 9, max: 9})
+    ],
+    userController.updateUser
+);
